@@ -1,0 +1,28 @@
+Build
+~~~~~
+
+$ for p in *.go; do go build $p; done
+
+Results
+~~~~~~~
+
+Tested on Mac OS X, 2.6 GHz Intel Core i5, 8 GB 1600 MZ DDR3
+
+$ ./chan 2
+done 2M roundtrips in 0.996000 seconds
+duration of passing a single message: 498 ns
+message passes per second: 2.008032M
+
+$ ./ctxswitch 2
+performed 2M context switches in 0.197000 seconds
+duration of one context switch: 98 ns
+context switches per second: 10.204081M
+
+$ ./go 2
+executed 2M goroutines in 10.691000 seconds
+duration of one coroutine creation+termination: 5345 ns
+goroutine creations+terminatios per second: 0.187090M
+
+$ ./whisper 2000000
+res: 2000001
+took 16.200000 seconds
