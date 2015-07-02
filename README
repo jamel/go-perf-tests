@@ -3,8 +3,8 @@ Build
 
 $ for p in *.go; do go build $p; done
 
-Results
-~~~~~~~
+Results of Go
+~~~~~~~~~~~~~
 
 Tested on Mac OS X, 2.6 GHz Intel Core i5, 8 GB 1600 MZ DDR3
 
@@ -26,3 +26,24 @@ goroutine creations+terminatios per second: 0.187090M
 $ ./whisper 2000000
 res: 2000001
 took 16.200000 seconds
+
+
+Libmill results
+~~~~~~~~~~~~~~~
+$ ./chan 2
+done 2M roundtrips in 6.977000 seconds
+duration of passing a single message: 1744 ns
+message passes per second: 0.573394M
+
+$ ./go 2
+executed 2M coroutines in 1.755000 seconds
+duration of one coroutine creation+termination: 877 ns
+coroutine creations+terminatios per second: 1.140250M
+
+$ ./ctxswitch 2
+performed 2M context switches in 1.664000 seconds
+duration of one context switch: 832 ns
+context switches per second: 1.201923M
+
+$ ./whispers 200000  # 10 time lower
+took 392.645996 seconds
